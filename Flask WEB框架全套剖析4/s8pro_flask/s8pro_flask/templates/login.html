@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>用户登录</title>
+</head>
+<body>
+    <form method="post">
+        {{form.user}} {{form.user.errors[0]}}
+        {{form.pwd}} {{form.pwd.errors[0]}}
+        <input type="submit" value="提交">{{msg}}
+    </form>
+</body>
+</html>

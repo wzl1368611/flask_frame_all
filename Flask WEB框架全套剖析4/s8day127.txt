@@ -1,0 +1,238 @@
+s8day127
+
+内容回顾：
+	1. django/flask框架的认识？
+	
+	2. Flask上下文管理机制
+		PS: 类
+		
+	3. 为什么把请求放到RequestContext中：
+		ctx = RequestContext(request,session)
+	4. Local对象作用？
+		- 看过Local源码，threading.local相似，但是又有不同之处。
+		- Local中基于greenlet获取唯一标识，粒度更细。
+	5. LocalStack对象作用？
+		- 对Local对象中的数据进行操作。
+		- 将local对象中的数据维护成一个栈
+			local = {
+				1231：{stack: [ctx,]}
+			}
+	6. 上下文管理
+		请求上下文：request/session
+		 App上下文: app/g
+	7. 什么是g？
+	
+	8. 获取Session/g/current_app/request 
+		
+	9. 技术：
+		- 反射 
+		- 面向对象，封装：RequestContext
+			__dict__
+		- 线程（threading.local）
+		- 笔试：自己写一个类+列表 实现栈。（LocalStack，文杰）
+	
+	PS: 一定要会
+	
+今日内容：
+	1. flask-session 
+	
+	2. 数据库连接池：DBUtils(pymysql)
+	
+	3. wtforms
+	
+	4. SQLAchemy/flask-sqlachemy
+	
+	5. flask-script
+	
+	6. flask-migrate
+	
+内容概要：
+	0. 补充：视频播放
+	
+	1. flask-session 
+		作用：将默认保存的签名cookie中的值 保存到 redis/memcached/file/Mongodb/SQLAlchemy
+		
+		应用：
+			a. 配置
+				app.config['SESSION_TYPE'] = 'redis'
+				app.config['SESSION_REDIS'] = Redis(host='192.168.0.94',port='6379')
+				
+			b. 替换 
+				from flask_session import Session
+				Session(app)
+				
+			注意：session中存储的是字典，修改字典内部元素时，会造成数据不更新。
+				  - motified = True
+				  - SESSION_REFRESH_EACH_REQUEST = True and  session.permanent = True(redis中默认)
+		
+		
+		PS: 
+				 数据框 模板      视图
+			MTV, Model  Template  View
+			MVC, Model  View      Controller
+	
+	2. 数据库连接池
+		pip install DBUtils
+		
+		模式：
+			- 每个线程创建一个连接，关闭（默认不关闭），线程终止时，才关闭连接。
+			- 创建共享连接池
+		
+		应用：只要写原生SQL，用户数据框连接池
+		
+		
+		
+	3. wtforms 
+		作用：用于对python web框架做表单验证。
+		
+		使用：
+			class MyForm(Form):
+				user = 类（正则,插件）
+				字段 = 类（正则,插件）
+				字段 = 类（正则,插件）
+				字段 = 类（正则,插件）
+				字段 = 类（正则,插件）
+				字段 = 类（正则,插件）
+				
+			
+			form = MyForm()
+			# 生成HTML标签
+			print(form.user) 类.__str__ ==> 插件.xx方法
+	
+			# 验证 
+			form = MyForm(formdata=request.form)
+			if form.validate():
+				# 内部找到所有的字段：user + 用户发过来的数据 =》 正则校验
+	
+		基本使用：
+			http://www.cnblogs.com/wupeiqi/articles/8202357.html
+	
+	
+	
+总结：
+	1. 授权播放
+	2. flask-session 
+	3. dbutils
+	4. wtforms 
+		- 未完待续
+	
+	作业：
+		- 上下文管理
+		- flask-session
+		- 路飞完成
+		
+		- wtforms
+			- user = simple.StringField() 
+			         UnboundField(simple.StringField，计数器)
+			
+			- FormMeta.__call__
+		
+		- 自己写类实现栈
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

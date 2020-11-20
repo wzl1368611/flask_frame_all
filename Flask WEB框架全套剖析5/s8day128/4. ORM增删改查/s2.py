@@ -1,0 +1,16 @@
+import models
+
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+
+engine =create_engine("mysql+pymysql://root:123456@127.0.0.1:3306/s8day128db?charset=utf8")
+XXXXXX = sessionmaker(bind=engine)
+session = XXXXXX()
+
+# 查询
+result = session.query(models.Classes).all()
+for item in result:
+    print(item.id,item.name)
+
+
+session.close()

@@ -1,0 +1,273 @@
+s8day122
+
+内容回顾：
+	1. 项目结构
+		- 导师后台
+		- 管理后台
+		- 主站（我负责）
+	2. 主站的功能
+		- vue
+			- 一点兼职, 课程列表、详细、深科技
+		- rest api 
+			- 课程系列 
+				- 列表
+				- 详细
+				- 推荐课程
+				- 章节、课时
+				- 常见问题
+				- 评论
+			- 深科技 
+				- 文章列表
+				- 详细
+				- 评论
+				- 赞
+				- 收藏
+			- 个人中心
+				- 我的账户、个人资料
+				- 订单
+				- 课程中心
+			- 购买流程
+				- 加入购物车
+				- 去结算
+				- 立即支付
+			- 其他
+				- 关于我们
+				- 练习我们
+				- 意见反馈
+	3. 技术点
+		- rest framework框架
+			- 认证，用于用户认证。
+				- 如果用中间件实现，有什么区别？
+					- 时机不同。
+					- 认证逻辑无需实现。
+				- 返回值：
+					- None
+					- 异常
+					- (user,token)
+			- 分页
+			- 视图 
+				ModelViewSet
+					queryset = xxx
+					
+					def get_queryset（）：
+						assert ...
+			- 序列化 
+				- __new__
+				- source
+				- Method
+			
+		- 跨域
+			- jsonp
+			- cors
+		- redis
+			- 为什么用redis做购物车？
+				- 频繁操作
+				- 中间状态
+				- 数据放入内容，快。
+			PS: 
+				- 也可以搞sessionsession
+				- redis分布式锁
+			
+		- 支付宝支付接口
+			- RSA
+			- 金额：小数点后两位
+			- 两个URL
+			- 支付宝公钥+商户私钥
+		- 微信消息推送
+			- 企业号，服务号
+			- 普通消息、模板消息、
+			- 通过js生成二维码
+			- 唯一标识获取到
+			
+		- ContentType
+			
+		- 参考：django 中间件 、rest 配置
+			importlib
+			getattr
+			示例：发送消息提醒
+			
+		- django配置文件
+			
+		
+		- ORM操作
+			- only
+			- defer
+			- exclude
+			- filter(id__in=[1,2,3])
+		
+		- git协同开发 
+		
+		- csrf
+			- 中间件
+			- 装饰器
+				
+				@csrf_exempt
+				def index(request):
+					pass
+					
+					
+				csrf_exempt(view)
+				
+		- vue.js 基本命令
+			
+		- router拦截器
+		
+		- ajax 
+			- jQuery
+			- axios
+			
+			本质：XMLHttpRequest对象实现。
+			
+				var xhr = XMLHttpRequest();
+				// 定义回调函数
+				xhr.onreadystatechange = function(){
+					if(xhr.readyState == 4){
+						// 已经接收到全部响应数据，执行以下操作
+						var data = xhr.responseText;
+						console.log(data);
+					}
+				};
+				// 指定连接方式和地址----文件方式
+				xhr.open('POST', "/test/", true);
+				// 设置请求头
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset-UTF-8');
+				// 发送请求
+				xhr.send('n1=1;n2=2;');
+			
+		
+		- 请求头Content-Type
+			- request.POST 
+				- 'Content-Type', 'application/x-www-form-urlencoded;
+				- 'n1=1&n2=2;'
+			- request.body
+			
+		- json
+
+		- vuex
+
+		- vue-cookies
+		
+			
+	4. 面试题相关笔记 
+		
+	5. 公司组织架构
+	
+	6. 开发周期，人员配比。
+	
+
+
+今日内容：
+	- 路飞购买流程
+		- 加入购物车
+		- 结算 
+		- 去支付
+	- Flask框架 
+		- 路由 
+		- 视图
+		- 模板 
+		- session
+		- ...
+		
+内容详细：
+	1. 加入购物车
+		
+	2. 去结算
+	
+	3. 立即支付 
+	
+	
+	4. Flask框架 
+		谈谈对PythonWeb框架：
+			- django，大而全，重武器，内部提供：ORM、Admin、中间件、Form、ModelForm、Session、缓存、信号、CSRF；
+			- flask，短小精悍，可扩展强，第三方组件丰富。
+			- tornado，短小精悍+异步非阻塞。
+			- 其他：
+				- web.py
+				- bottle.py 
+		a. wsgi 
+			- django，wsgiref
+			- flask，werkzeug
+			
+		b. Flask快速使用示例
+		
+		
+作业：
+
+	1. 路飞 
+	
+	2. Flask 
+		- 装饰器实现
+			- 位置
+			- url起别名（不能重复）
+		- 类似django中间件的东西：before_request装饰器
+		
+	3. 上下文预习：
+		a. threading.local
+		b. 
+			functools.wraps
+			functools.partial
+		c. 面向对象封装
+		
+		d. 面向对象中：
+			__setattr__
+			__getattr__
+			__delattr__
+	4. 预习：
+		http://www.cnblogs.com/wupeiqi/articles/7552008.html
+			
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

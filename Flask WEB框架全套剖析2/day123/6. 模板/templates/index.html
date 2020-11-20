@@ -1,0 +1,10 @@
+{% extends 'layout.html'%}
+
+{% block content %}
+    <h1>{{k1}}</h1>
+    <h1>{{k2.0}}  {{k2[0]}} </h1>
+    <h1>{{k3.name}}  {{k3['name']}}  {{k3.get('name',888)}}</h1>
+    <h1>{{k4(66)}}</h1>
+    <h1>{{k5(99)}}</h1>
+    <h1>{{sbbbbbbb(1,2)}}</h1>
+{% endblock%}
